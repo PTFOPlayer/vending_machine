@@ -1,0 +1,19 @@
+.tekst {
+    background-color: beige;
+    width: 10vw;
+}
+
+.mydiv {
+    display: flex;
+    flex-direction: row; //comment
+    background-color: aqua;
+    justify-content: center;
+    align-items: center;
+    
+    h1 {
+        margin: 0.5vw;
+    }
+    h2 {
+        margin: 10px;
+    }
+}
