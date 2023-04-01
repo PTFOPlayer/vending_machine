@@ -1,5 +1,6 @@
 import express from "express"
 import mongoose from "mongoose"
+import routes from "./routes/routes"
 
 const port = 3000;
 const mongoString = "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000";
@@ -18,3 +19,7 @@ app.get("/", (req: any,res: { send: (arg0: string) => void }) => {
 })
 
 app.listen(port, () => console.log(`listening on: ${port}`))
+
+
+//dodanie API przez Router expressa
+app.use('/api', routes)
