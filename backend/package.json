@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npx ts-node ./main.ts",
-    "transpile": "tsc main.ts --build",
-    "release": "tsc main.ts --build && node main.js"
+    "transpile": "tsc --build",
+    "release": "tsc --build && node main.js"
   },
   "author": "",
   "license": "ISC",
