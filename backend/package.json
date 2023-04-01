@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx ts-node ./main.ts",
+    "transpile": "tsc main.ts --build",
+    "release": "tsc main.ts --build && node main.js"
   },
   "author": "",
   "license": "ISC",
