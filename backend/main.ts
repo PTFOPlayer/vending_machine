@@ -13,6 +13,7 @@ database.on('error', (error) => console.log(error))
 database.once('connected', () => console.log("Database Connected"))
 
 const app = express()
+app.use(express.json())
 
 app.get("/", (req: any,res: { send: (arg0: string) => void }) => {
     res.send("lorem")
@@ -20,6 +21,7 @@ app.get("/", (req: any,res: { send: (arg0: string) => void }) => {
 
 app.listen(port, () => console.log(`listening on: ${port}`))
 
-
 //dodanie API przez Router expressa
+//aby odwołać się do api należy podać /api/
 app.use('/api', routes)
+
