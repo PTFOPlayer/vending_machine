@@ -1,5 +1,4 @@
 // interfejs do maszyny w założeniu może być używany jednocześnie przez backend jak i przez front end
-import {product} from './product'
 
 export enum payment_methods {
     Card,
@@ -12,7 +11,7 @@ export interface machine {
     slots: {
         heigth: number,
         width: number
-        content: Array<Array<product>> | null
+        content: Array<Array<Object>> | null
     },
     coordinates: {
         x: number,
