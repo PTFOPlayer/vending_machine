@@ -1,14 +1,17 @@
 import React from "react";
 import './test.scss'
+import Machine from "../Machine/Machine";
 
 export default function Test() {            //export - funkcja jest dostępna dla innych programów po zaimportowaniu
-    let arr: Array<number> = [1,2,3,4,5,6,7,8,9]; 
+    let arr: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-    let lamb = (a:number) => {
+    let lamb = (a: number) => {
         return <p>{a}</p>
     }
 
     let maybe: number | null = null;
+
+    const machine = new Machine()
 
     return (<>
         <div className="mydiv">
@@ -17,8 +20,34 @@ export default function Test() {            //export - funkcja jest dostępna dl
         </div>
         <p className="tekst">To jest tekst próbny.</p>
         {
-            arr.map((a)=>lamb(a))
+            arr.map((a) => lamb(a))
         }
         {maybe ? <p>{maybe}</p> : null}
+
+        {
+            <>
+                <p>{machine.get_coordinates().x}</p>
+
+                <p>{machine.get_coordinates().y}</p>
+
+                <p>{machine.get_id().toString()}</p>
+
+                <p>{machine.get_payment().toString()}</p>
+            </>
+        }
+        {
+
+        machine.get_content()?.map((e) => {
+            return <>
+                {
+                    e.map((e) => {
+                        console.log(e)
+                        return <p>{e.ammount}</p>
+                    })
+                }
+            </>
+        })
+
+        }
     </>)
 }

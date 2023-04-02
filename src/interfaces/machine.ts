@@ -1,9 +1,9 @@
 // interfejs do maszyny w założeniu może być używany jednocześnie przez backend jak i przez front end
 
 export enum payment_methods {
-    Card,
-    Cash,
-    Change
+    Card = "Card",
+    Cash = "Cash",
+    Change = "Change"
 }
 
 export interface machine {
