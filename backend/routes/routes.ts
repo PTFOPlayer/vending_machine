@@ -8,7 +8,8 @@ router.post('/', async (req, res) => {
     var model = new Model({
         name: req.body.name,
         price: req.body.price,
-        code: req.body.code
+        code: req.body.code,
+        ile: req.body.ile,
     })
     try{
         const newModel = await model.save()
@@ -45,10 +46,16 @@ router.patch('/:id', async (req, res) => {
     var model = await Model.findById(req.params.id);
     if(model != null)
     {
-      model.price = model.price - 1
-
-      const newModel = await model.save()
-      res.status(200).json(newModel)
+      if(model.ile > 0)
+      {
+        model.ile = model.ile - 1
+        const newModel = await model.save()
+        res.status(200).json(newModel)
+      }
+      else
+      {
+        res.status(500).json("quantity <= 0")
+      }
     }
   } catch (error) {
     res.status(500).json("error")

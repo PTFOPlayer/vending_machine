@@ -16,7 +16,7 @@ const modelSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    quantity:{
+    ile:{
       required: true,
       type: Number,
       default: 0
