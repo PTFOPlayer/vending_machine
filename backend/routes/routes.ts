@@ -22,15 +22,36 @@ router.post('/', async (req, res) => {
 })
 
 //metoda GET ALL (zobacz wszystkie)
-router.get('/', (req, res)=> res.send('Get All API'))
-
+router.get('/', async (req, res) => {
+  try{
+    const model = await Model.find()
+    res.json(model)
+  } catch(err) {
+    res.status(500).json("error")
+  }
+})
 //metoda GET BY ID (zobacz po ID)
-router.get('/:id', (req, res) => res.send(req.params.id))
+router.get('/:id', async (req, res) => {
+  try {
+    const model = await Model.findById(req.params.id);
+    res.json(model)
+  } catch (error) {
+    res.status(500).json("error")
+  }
+})
 
-//metoda UPDATE BY ID (akutalizacja danych po ID)
-router.patch('/:id', (req, res) => res.send('Update by ID API'))
+router.patch('/:id', async (req, res) => {
+  try {
+    var model = await Model.findById(req.params.id);
+    if(model != null)
+    {
+      model.price = model.price - 1
 
-//metoda DELETE BY ID (usuwanie po ID)
-router.delete('/:id', (req, res) => res.send('Delete by ID API'))
-
+      const newModel = await model.save()
+      res.status(200).json(newModel)
+    }
+  } catch (error) {
+    res.status(500).json("error")
+  }
+})
 export = router;
