@@ -1,27 +1,52 @@
 import mongoose from "mongoose";
 
 const modelSchema = new mongoose.Schema({
-    name: {
-        required: true,
-        type: String,
-        default: ""
-    },
-    price: {
+    number: {
         required: true,
         type: Number,
-        default: 0
-    },
-    code:{
-        required: true,
-        type: String,
         default: null
     },
-    ile:{
+    slots:{
+        heigth: {
+          required: true,
+          type: Number,
+          default: 1
+        },
+        width: {
+        required: true,
+          type: Number,
+          default: 1
+        },
+        content:[[{
+          product: String,
+          amount: Number
+          }
+        ]]
+    },
+    coordinates:{
+      x:{
+        required: true,
+        type: Number
+      },
+      y:{
+        required: true,
+        type: Number
+      }
+    },
+    coin_eating_chance:{
+      required: false,
+      type: Number 
+    },
+    stuck_product_chance:{
+      required: false,
+      type: Number
+    },
+    payment:{
       required: true,
-      type: Number,
-      default: 0
+      type: String,
     }
-},{
+},
+{
     versionKey: false,
 });
 

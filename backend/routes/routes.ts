@@ -5,11 +5,32 @@ const router = express.Router()
 
 //metoda POST (dodawania)
 router.post('/', async (req, res) => {
+  const content1 = []
+  for(const tempArray1 of req.body.slots.content){
+    const content2 = []
+    for(const tempArray2 of tempArray1){
+        const contentT ={
+        product: tempArray2.product,
+        amount: tempArray2.amount
+      };
+      content2.push(contentT)
+    }
+    content1.push(content2)
+  }
     var model = new Model({
-        name: req.body.name,
-        price: req.body.price,
-        code: req.body.code,
-        ile: req.body.ile,
+        number: req.body.number,
+        slots: {
+          heigth: req.body.slots.heigth,
+          width: req.body.slots.width,
+          content: content1
+        },
+        coordinates:{
+          x: req.body.coordinates.x,
+          y: req.body.coordinates.y
+        },
+        coin_eating_chance: req.body.coin_eating_chance,
+        stuck_product_chance: req.body.stuck_product_chance,
+        payment: req.body.payment
     })
     try{
         const newModel = await model.save()
@@ -41,24 +62,4 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.patch('/:id', async (req, res) => {
-  try {
-    var model = await Model.findById(req.params.id);
-    if(model != null)
-    {
-      if(model.ile > 0)
-      {
-        model.ile = model.ile - 1
-        const newModel = await model.save()
-        res.status(200).json(newModel)
-      }
-      else
-      {
-        res.status(500).json("quantity <= 0")
-      }
-    }
-  } catch (error) {
-    res.status(500).json("error")
-  }
-})
 export = router;
