@@ -17,11 +17,13 @@ const modelSchema = new mongoose.Schema({
           type: Number,
           default: 1
         },
-        content:[[{
+        content:[
+          {
           product: String,
-          amount: Number
-          }
-        ]]
+          amount: Number,
+          x: Number,
+          y: Number
+          }]
     },
     coordinates:{
       x:{
@@ -32,14 +34,6 @@ const modelSchema = new mongoose.Schema({
         required: true,
         type: Number
       }
-    },
-    coin_eating_chance:{
-      required: false,
-      type: Number 
-    },
-    stuck_product_chance:{
-      required: false,
-      type: Number
     },
     payment:{
       required: true,

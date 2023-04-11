@@ -5,31 +5,27 @@ const router = express.Router()
 
 //metoda POST (dodawania)
 router.post('/', async (req, res) => {
-  const content1 = []
-  for(const tempArray1 of req.body.slots.content){
-    const content2 = []
-    for(const tempArray2 of tempArray1){
+  const content = []
+  for(const tempArray of req.body.slots.content){
         const contentT ={
-        product: tempArray2.product,
-        amount: tempArray2.amount
+        product: tempArray.product,
+        amount: tempArray.amount,
+        x: tempArray.x,
+        y: tempArray.y
       };
-      content2.push(contentT)
-    }
-    content1.push(content2)
+    content.push(contentT)
   }
     var model = new Model({
         number: req.body.number,
         slots: {
           heigth: req.body.slots.heigth,
           width: req.body.slots.width,
-          content: content1
+          content: content
         },
         coordinates:{
           x: req.body.coordinates.x,
           y: req.body.coordinates.y
         },
-        coin_eating_chance: req.body.coin_eating_chance,
-        stuck_product_chance: req.body.stuck_product_chance,
         payment: req.body.payment
     })
     try{
@@ -62,4 +58,15 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.patch('/:id/:x/:y', async (req,res) => {
+  try {
+    const filter = { "_id": req.params.id, "slots.content.x": req.params.x, "slots.content.y": req.params.y}
+    const update = { $inc: {"slots.content.$.amount": -1 }}
+    await Model.findOneAndUpdate(filter, update);
+    let model = await Model.findOne(filter);
+    res.json(model)
+  } catch (error) {
+    res.status(500).json("error")
+  }
+})
 export = router;
