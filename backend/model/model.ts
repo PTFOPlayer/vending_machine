@@ -38,6 +38,12 @@ const modelSchema = new mongoose.Schema({
     payment:{
       required: true,
       type: String,
+    },
+    coin_eating_chance:{
+      type: Number
+    },
+    stuck_product_chance:{
+      type: Number
     }
 },
 {
