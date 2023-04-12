@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './test.scss'
 import Machine from "../Machine/Machine";
 
@@ -10,9 +10,15 @@ export default function Test() {            //export - funkcja jest dostępna dl
     }
 
     let maybe: number | null = null;
-
-    const machine = new Machine()
-
+    const [machine, setMachine] = useState<null | Machine>(null)
+    
+    // let l = async () => {
+        // let d = await Machine.create()
+        // d ? setMachine(d) : {};
+    // }
+    useEffect(() => {
+        Machine.create().then(e => setMachine(e))
+    },[])
     return (<>
         <div className="mydiv">
             <h1>tekst w h1</h1>
@@ -24,29 +30,29 @@ export default function Test() {            //export - funkcja jest dostępna dl
         }
         {maybe ? <p>{maybe}</p> : null}
 
-        {
+        { machine ? 
             <>
                 <p>{machine.get_coordinates().x}</p>
 
                 <p>{machine.get_coordinates().y}</p>
 
-                <p>{machine.get_id().toString()}</p>
+                <p>{machine.get_id()}</p>
 
-                <p>{machine.get_payment().toString()}</p>
-            </>
+                <p>{machine.get_payment()}</p>
+            </> : null
         }
-        {
+        {machine ? 
 
         machine.get_content()?.map((e) => {
             return <>
                 {
                     e.map((e) => {
                         console.log(e)
-                        return <p>{e.ammount}</p>
+                        return <p>{e.amount}</p>
                     })
                 }
             </>
-        })
+        }) : null
 
         }
     </>)

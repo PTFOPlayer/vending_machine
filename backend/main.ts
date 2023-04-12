@@ -1,8 +1,9 @@
 import express from "express"
 import mongoose from "mongoose"
 import routes from "./routes/routes"
+import cors from "cors"
 
-const port = 3000;
+const port = 3100;
 const mongoString = "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000";
 
 //utworzenie bazy danych, łącząc się z sewerem lokalnym
@@ -14,8 +15,9 @@ database.once('connected', () => console.log("Database Connected"))
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
-app.get("/", (req: any,res: { send: (arg0: string) => void }) => {
+app.get("/", (req, res) => {
     res.send("lorem")
 })
 
@@ -24,4 +26,3 @@ app.listen(port, () => console.log(`listening on: ${port}`))
 //dodanie API przez Router expressa
 //aby odwołać się do api należy podać /api/
 app.use('/api', routes)
-
