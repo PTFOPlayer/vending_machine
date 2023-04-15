@@ -1,0 +1,42 @@
+.box{
+    display:flow-root;
+    background-color: rgb(96, 28, 28);
+    width: 450px;
+    height: 700px; 
+}
+
+.interior{
+    display: flex;
+    background-color: black;
+    width: 325px;
+    height: 500px;
+    margin: 25px;
+    margin-top: 50px;
+}
+
+.push{
+    background-color: black;
+    width: 325px;
+    height: 90px;
+    margin: 25px;
+    justify-content: center;
+    align-items: center;
+    color: #ffa500
+}
+
+.window{
+    display: flex;
+    background-color: black;
+    width: 75px;
+    height: 30px;    
+}
+
+.coins{
+    background-color: black;
+    width: 90px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    color:rgb(237, 202, 161)
+}
+
