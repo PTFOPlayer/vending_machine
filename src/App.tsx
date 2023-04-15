@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.scss';
-import Test from './test/Test'
+//import Test from './test/Test'
+import View from './MachineAppearance/MachineApp';
 
 function App() {
   return (
     <div className="App">
-      <Test/>
+     
+      <View/>
+      
     </div>
   );
 }
