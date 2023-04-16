@@ -14,10 +14,11 @@ database.on('error', (error) => console.log(error))
 database.once('connected', () => console.log("Database Connected"))
 
 const app = express()
+
 app.use(express.json())
 app.use(cors())
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
     res.send("lorem")
 })
 

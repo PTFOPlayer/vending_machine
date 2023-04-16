@@ -1,4 +1,3 @@
-import { json } from "stream/consumers";
 import Product from "../Products/Product";
 import { machine, payment_methods } from "../interfaces/machine"
 
@@ -20,32 +19,8 @@ class MachineSpec implements machine {
         this.slots = data.slots;
         this.coordinates = data.coordinates;
         this.payment = data.payment;
-        //let slots_h = 5;
-        //let slots_w = 3;
-        //let content:Array<Array<{
-        //    ammount:number,
-        //    product: Product
-        //}>> = [[]]; 
-        //    for(let i = 0; i < slots_h; i++ ) {
-        //        let sub_arr = [];
-        //        for(let j = 0; j < slots_w; j++ ) {
-        //            sub_arr.push({
-        //                ammount: i*j,
-        //                product: new Product()
-        //            })
-        //        }
-        //        content.push(sub_arr)
-        //    }
-        //
-        //
-        //this.id = 1;
-        //this.slots = {
-        //    heigth: 2,
-        //    width: 3,
-        //    content: content
-        //};
-        //this.coordinates={x: 4, y: 5}
-        //this.payment = payment_methods.Card;
+        this.coin_eating_chance = data.coin_eating_chance;
+        this.stuck_produckt_chance = data.stuck_produckt_chance;
     }
     static async create() {
         console.log("fetching")
