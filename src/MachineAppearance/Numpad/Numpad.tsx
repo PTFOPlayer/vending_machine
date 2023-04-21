@@ -3,7 +3,9 @@ import "./numpad.scss"
 export default function Numpad(state: {buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>>}) {
 
   const handle_click = (e: number) => {
-    state.setBuffer(state.buffer + e);
+    if (state.buffer.length < 4) {
+      state.setBuffer(state.buffer + e);
+    }
   }
 
   const clearBuffer = () => {
