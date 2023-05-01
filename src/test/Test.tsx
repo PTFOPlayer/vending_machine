@@ -17,7 +17,7 @@ export default function Test() {            //export - funkcja jest dostępna dl
         // d ? setMachine(d) : {};
     // }
     useEffect(() => {
-        Machine.create().then(e => setMachine(e))
+        Machine.init().then(e => setMachine(e))
     },[])
     return (<>
         <div className="mydiv">
