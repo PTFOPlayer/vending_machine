@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    background: linear-gradient(rgb(190, 29, 29, 0.8) 20%, rgb(153, 65, 65, 0.8) 50%, rgb(70, 5, 48, 0.8) 80%), url('noise.svg');
+    background: linear-gradient(rgb(190, 29, 29) 20%, rgb(153, 65, 65) 50%, rgb(70, 5, 48) 80%);
     width: fit-content;
     height: fit-content;
 }
@@ -30,7 +30,12 @@
     justify-content: center;
     align-items: center;
     color: #ffa500;
-
+    p {
+        font-size: 16px;
+        background: -webkit-linear-gradient(#b9ae8d, #ffffff);
+        background-clip: text;
+        -webkit-text-fill-color: transparent; 
+    }
     .window {
         margin: 15px;
         display: flex;
@@ -40,6 +45,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+
     }
 
     .coins {

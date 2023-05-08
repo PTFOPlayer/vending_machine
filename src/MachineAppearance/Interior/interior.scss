@@ -17,16 +17,52 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
-            p {
-                margin: 10px;
-                background-color: red;
-                display: flex;
+            transform: translateY(-15px);
+            .segment {
                 height: 100px;
                 width: 80px;
+                margin: 10px;
+            }
+
+            p {
+                color: white;
+                display: flex;
+            }
+            
+            .base {
+                background-color: rgb(139, 131, 131);
+                height: 20px;
+                width: 80px;
+                transform: translateY(90px);
+            }
+            .spiral {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .innerspiral {
+                    margin: 0;
+                    height: 50px;
+                    width: 50px;
+                    background-color: #bbb;
+                    background: radial-gradient(circle at 0% 100%, black 40%, white 60%);
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .circle_hide {
+                        background-color: black;
+                        border-radius: 50%;
+                        height: 42px;
+                        width: 42px;
+                    }
+                }
             }
         }
     }
+
     .glass {
         background: rgba(255, 255, 255, 0.15);
         border-radius: 16px;
@@ -35,7 +71,7 @@
         border: 1px solid rgba(255, 255, 255, 1);
         width: 100%;
         height: 100%;
-        background: url(noise.svg);
+        //background: url(noise.svg);
         top: 0;
         left: 0;
 

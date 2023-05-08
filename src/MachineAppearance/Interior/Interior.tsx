@@ -32,7 +32,17 @@ export default function Interior() {
           return (
             <div className="node">
               {e.map((f) => {
-                return <p>{f.toString()}</p>;
+                return <div className="segment">
+                  <div className="base" />
+                  <div className="spiral">
+
+                    <div className="innerspiral">
+                      <div className="circle_hide"/>
+                    </div>
+                  </div>
+
+                </div>
+
               })}
             </div>
           );
