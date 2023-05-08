@@ -2,49 +2,25 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    background: linear-gradient( rgb(190, 29, 29) 20%, rgb(153, 65, 65) 50%, rgb(70, 5, 48) 80%);
+    background: linear-gradient(rgb(190, 29, 29, 0.8) 20%, rgb(153, 65, 65, 0.8) 50%, rgb(70, 5, 48, 0.8) 80%), url('noise.svg');
     width: fit-content;
     height: fit-content;
 }
 
 .column1 {
-    .interior {
-        display: flex;
-        background-color: black;
-        width: fit-content;
-        height: fit-content;
-        margin-left: 25px;
-        margin-top: 25px;
-        display: flex;
-        justify-content: space-between;
-        box-shadow: 1px 2px 3px 4px gray;
-        .nodes {
-            display: flex;
-            margin: 10px;
-            .node {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                p {
-                    margin: 10px;
-                    background-color: red;
-                    display: flex;
-                    height: 100px;
-                    width: 80px;
-                }
-            }
-        }
-        border: 2px solid white;
-    }
-
     .push {
-        background-color: black;
         height: 90px;
         margin: 25px;
+        width: calc(100% - 25px);
         justify-content: center;
         align-items: center;
-        color: #ffa500
+        background: linear-gradient(rgb(58, 40, 40) 20%, rgb(22, 17, 17) 50%, rgb(26, 24, 25) 80%);
+        h1 {
+            font-size: 68px;
+            background: -webkit-linear-gradient(#7c7a7a, #d67b14);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
 
