@@ -24,10 +24,11 @@ export class MachineSpec implements machine {
     this.coordinates = data.coordinates;
     this.payment = data.payment;
     this.coin_eating_chance = data.coin_eating_chance;
-    this.stuck_produckt_chance = data.stuck_produckt_chance;
+    this.stuck_produckt_chance = data.stuck_product_chance;
   }
+
   static async init(): Promise<machine | null> {
-    return fetch("http://localhost:3100/api/645b51e709eb594f794964b5")
+    return fetch("http://localhost:3100/api/machine/645b51e709eb594f794964b5")
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);

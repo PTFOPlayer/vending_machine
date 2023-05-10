@@ -23,6 +23,6 @@ export interface machine {
         y: number
     },
     coin_eating_chance?: number | undefined,
-    stuck_produckt_chance?: number | undefined,
+    stuck_product_chance?: number | undefined,
     payment: payment_methods
 }

@@ -1,13 +1,14 @@
 import {MachineSpec } from "./MachineSpec";
 
 export default class MachineInstance extends MachineSpec {
+  // eslint-disable-next-line
   constructor(data: MachineSpec) {
     super(data);
   }
 
   static async init() {
     let data = await MachineSpec.init();
-    return data ? new this(data) : null;
+    return data ? new MachineInstance(data) : null;
   }
 
   get_id(): number {

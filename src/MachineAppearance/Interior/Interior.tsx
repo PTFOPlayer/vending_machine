@@ -2,6 +2,21 @@ import "./interior.scss"
 import MachineInstance from "../../Machine/MachineInstance";
 import React, { useEffect, useState } from "react";
 import Product from "../../Products/Product";
+import { MachineVerify } from "../../Machine/MachineVerify";
+
+type nodeparams = {
+  e: {
+    amount: number;
+    product: string | Product;
+  }[]
+}
+
+type nodesparams = {
+  e: {
+    amount: number;
+    product: string | Product;
+  }[][]
+}
 
 export default function Interior() {
   const [machine, setMachine] = useState<null | MachineInstance>(null);
@@ -12,18 +27,10 @@ export default function Interior() {
       .catch((e) => console.log(e));
   }, []);
 
-  const dimensions: [number, number] = [4, 5];
-  let arr: Array<Array<Number>> = [];
-
-  for (let i = 0; i < dimensions[0]; i++) {
-    let t_arr: Array<number> = [];
-    for (let j = 0; j < dimensions[1]; j++) {
-      t_arr.push(j);
-    }
-    arr.push(t_arr);
+  if (machine) {
+    let mv = new MachineVerify(machine);
+    mv.verify() ? console.log("verified") : console.log("error in specs");
   }
-
-  console.log(machine?.slots.content);
 
   let Spiral = () => {
     return (
@@ -35,12 +42,7 @@ export default function Interior() {
     )
   }
 
-  let Node = (params: {
-    e: {
-      amount: number;
-      product: string | Product;
-    }[]
-  }) => {
+  let Node = (params: nodeparams) => {
     return (
       <div className="node">
         {
@@ -58,12 +60,7 @@ export default function Interior() {
     )
   }
 
-  let Nodes = (params: {
-    e: {
-      amount: number;
-      product: string | Product;
-    }[][]
-  }) => {
+  let Nodes = (params: nodesparams) => {
     return (
       <div className="nodes">
         {params.e.map((e, key) => <Node e={e} key={key} />)}
@@ -73,7 +70,7 @@ export default function Interior() {
 
   return (
     <div className="interior">
-      {machine ? <Nodes e={ machine.slots.content} /> : null }
+      {machine ? <Nodes e={machine.slots.content} /> : null}
       <div className="glass" />
     </div>
   )
