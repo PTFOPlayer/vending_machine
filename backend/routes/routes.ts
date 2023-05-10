@@ -6,7 +6,7 @@ const router = express.Router()
 
 //metoda POST (dodawania)
 router.post('/', async (req, res) => {
-    let content: Array<Array<slot>> = new Array;
+    let content: slot[][] = new Array;
     let body = req.body
     if (body) {
         let data = body as machine
@@ -45,6 +45,29 @@ router.post('/', async (req, res) => {
         res.status(400).json(model)
     }
 })
+
+
+//data to push
+/*
+{
+	"number": 1,
+  	"slots": {
+	"heigth": 5,
+      "width": 4,
+      "content": [
+        [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}],
+        [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}],
+        [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}],
+        [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}]
+        ]
+},
+  "coordinates": {
+            "x": 1000,
+            "y": 100
+        },
+  "payment": "cash"
+}
+*/
 
 //metoda GET ALL (zobacz wszystkie)
 router.get('/', async (req, res) => {

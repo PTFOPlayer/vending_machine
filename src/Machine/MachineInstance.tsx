@@ -1,6 +1,6 @@
 import {MachineSpec } from "./MachineSpec";
 
-export default class Machine extends MachineSpec {
+export default class MachineInstance extends MachineSpec {
   constructor(data: MachineSpec) {
     super(data);
   }
@@ -8,7 +8,6 @@ export default class Machine extends MachineSpec {
   static async init() {
     let data = await MachineSpec.init();
     return data ? new this(data) : null;
-    //return new this(await MachineSpec.create());
   }
 
   get_id(): number {

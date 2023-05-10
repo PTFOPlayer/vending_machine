@@ -1,12 +1,13 @@
 import "./interior.scss"
-import Machine from "../../Machine/Machine";
+import MachineInstance from "../../Machine/MachineInstance";
 import React, { useEffect, useState } from "react";
+import Product from "../../Products/Product";
 
 export default function Interior() {
-  const [machine, setMachine] = useState<null | Machine>(null);
+  const [machine, setMachine] = useState<null | MachineInstance>(null);
 
   useEffect(() => {
-    Machine.init()
+    MachineInstance.init()
       .then((e) => setMachine(e))
       .catch((e) => console.log(e));
   }, []);
@@ -22,32 +23,57 @@ export default function Interior() {
     arr.push(t_arr);
   }
 
+  console.log(machine?.slots.content);
 
-  console.log(arr);
+  let Spiral = () => {
+    return (
+      <div className="spiral">
+        <div className="innerspiral">
+          <div className="circle_hide" />
+        </div>
+      </div>
+    )
+  }
+
+  let Node = (params: {
+    e: {
+      amount: number;
+      product: string | Product;
+    }[]
+  }) => {
+    return (
+      <div className="node">
+        {
+          params.e.map((e, key) => {
+            return (
+              <div className="segment" key={key}>
+                <div className="bottle" />
+                <div className="base" />
+                <Spiral />
+              </div>
+            )
+          })
+        }
+      </div>
+    )
+  }
+
+  let Nodes = (params: {
+    e: {
+      amount: number;
+      product: string | Product;
+    }[][]
+  }) => {
+    return (
+      <div className="nodes">
+        {params.e.map((e, key) => <Node e={e} key={key} />)}
+      </div>
+    )
+  }
 
   return (
     <div className="interior">
-      <div className="nodes">
-        {arr.map((e) => {
-          return (
-            <div className="node">
-              {e.map((f) => {
-                return <div className="segment">
-                  <div className="base" />
-                  <div className="spiral">
-
-                    <div className="innerspiral">
-                      <div className="circle_hide"/>
-                    </div>
-                  </div>
-
-                </div>
-
-              })}
-            </div>
-          );
-        })}
-      </div>
+      {machine ? <Nodes e={ machine.slots.content} /> : null }
       <div className="glass" />
     </div>
   )
