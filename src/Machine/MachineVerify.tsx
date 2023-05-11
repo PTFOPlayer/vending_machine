@@ -15,7 +15,7 @@ export class MachineVerify extends MachineSpec{
         super(machine);
     }
 
-    public verify() {
+    verify() {
         let points = 0;
         if (this.coin_eating_chance) {points+=1}
         if (this.stuck_produckt_chance) {points+=1}

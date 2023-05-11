@@ -9,7 +9,7 @@ export class MachineSpec implements machine {
     content: Array<
       Array<{
         amount: number;
-        product: Product | string;
+        product: string;
       }>
     >;
   };

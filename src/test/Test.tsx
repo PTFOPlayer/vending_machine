@@ -43,12 +43,12 @@ export default function Test() {            //export - funkcja jest dostępna dl
         }
         {machine ? 
 
-        machine.get_content()?.map((e) => {
+        machine.get_products()?.map((e) => {
             return <>
                 {
                     e.map((e) => {
                         console.log(e)
-                        return <p>{e.amount}</p>
+                        return <p>{e.get_colors()}</p>
                     })
                 }
             </>

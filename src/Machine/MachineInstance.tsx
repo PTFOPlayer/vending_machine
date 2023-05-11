@@ -1,7 +1,9 @@
-import {MachineSpec } from "./MachineSpec";
+import Product from "../Products/Product";
+import { MachineSpec } from "./MachineSpec";
 
 export default class MachineInstance extends MachineSpec {
   // eslint-disable-next-line
+  private product_objects: Product[][] = [];
   constructor(data: MachineSpec) {
     super(data);
   }
@@ -15,15 +17,23 @@ export default class MachineInstance extends MachineSpec {
     return this.id;
   }
 
-  get_content() {
-    return this.slots.content;
-  }
-
   get_coordinates() {
     return this.coordinates;
   }
 
   get_payment() {
     return this.payment;
+  }
+
+  get_products() {
+    return this.product_objects;
+  }
+
+  generate_products() {
+    for (let i = 0; i < this.slots.content.length; i++) {
+      for (let j = 0; j < this.slots.content[i].length; j++) {
+        this.product_objects[i][j] = new Product(this.slots.content[i][j].product, this.slots.content[i][j].amount);
+      }
+    }
   }
 }

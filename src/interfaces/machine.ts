@@ -15,7 +15,7 @@ export interface machine {
         width: number
         content: Array<Array<{
             amount:number,
-            product: Product | string
+            product: string
         }>>
     },
     coordinates: {
