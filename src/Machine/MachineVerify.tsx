@@ -17,10 +17,6 @@ export class MachineVerify extends MachineSpec{
 
     public verify() {
         let points = 0;
-        console.log(this.slots.content.length)
-        console.log(this.slots.content[0].length)
-        console.log(this.coin_eating_chance)
-        console.log(this.stuck_produckt_chance)
         if (this.coin_eating_chance) {points+=1}
         if (this.stuck_produckt_chance) {points+=1}
         if (this.slots.content.length === 4) {points+=1}
