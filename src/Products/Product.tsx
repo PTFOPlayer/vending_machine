@@ -1,53 +1,71 @@
 import React from "react"
 
-export enum shapes {
-  bottle,
-  bar,
-  bag,
-  none
-}
-
-export const bottle = shapes.bottle
-export const bar = shapes.bar
-export const bag = shapes.bag
-
-type productData = { id: number, price: number, color_major: string, color_minor: string, shape: shapes }
+type productData = { id: number, price: number, color_major: string, color_minor: string, shape: React.ReactElement }
 
 const lookup_table: Record<string, productData> = {
   "water": {
     id: 1,
-    price: 1.99,
+    price: 2,
     color_major: "lightblue",
     color_minor: "blue",
-    shape: bottle,
+    shape: (<i className="fa-solid fa-bottle-water" style={{ background: "-webkit-linear-gradient(lightblue, blue)", "WebkitBackgroundClip": "text", "WebkitTextFillColor": "transparent" }}></i>),
+  },
+  "coke": {
+    id: 1,
+    price: 4,
+    color_major: "lightblue",
+    color_minor: "blue",
+    shape: (<i className="fa-solid fa-bottle-water" style={{ background: "-webkit-linear-gradient(black, red)", "WebkitBackgroundClip": "text", "WebkitTextFillColor": "transparent" }}></i>),
+  },
+  "chocolate": {
+    id: 1,
+    price: 2.50,
+    color_major: "lightblue",
+    color_minor: "blue",
+    shape: (<i className="" style={{"fontSize":"70px"}}>🍫</i>),
+  },
+  "lolipop": {
+    id: 1,
+    price: 2.50,
+    color_major: "lightblue",
+    color_minor: "blue",
+    shape: (<i className="" style={{"fontSize":"70px"}}>🍭</i>),
+  },
+  "cookie": {
+    id: 1,
+    price: 2.50,
+    color_major: "lightblue",
+    color_minor: "blue",
+    shape: (<i className="" style={{"fontSize":"70px"}}>🍪</i>),
   }
 }
 
 const get_from_table = (name: string): productData => {
   return lookup_table[name] || {
     id: 0,
-    price: 0,
+    price: 2,
     color_major: "lightblue",
     color_minor: "blue",
-    shape: shapes.none
+    shape: (<i className="fa-solid fa-bottle-water" style={{ background: "-webkit-linear-gradient(lightblue, blue)", "WebkitBackgroundClip": "text", "WebkitTextFillColor": "transparent" }}></i>)
   }
 }
 
-export default class Product{
+export default class Product {
   private name: string;
   private id: number;
   private price: number;
   private color_major: string;
   private color_minor: string
+  private shape: React.ReactElement;
   private ammount: number;
-
-  constructor(pName: string, ammount:number) {
+  constructor(pName: string, ammount: number) {
     this.name = pName;
     let temporary = get_from_table(this.name);
     this.id = temporary.id;
     this.price = temporary.price;
     this.color_major = temporary.color_major;
     this.color_minor = temporary.color_minor;
+    this.shape = temporary.shape;
     this.ammount = ammount;
   }
 
@@ -66,13 +84,11 @@ export default class Product{
   get_colors(): [string, string] {
     return [this.color_major, this.color_minor]
   }
-  
+
 
   get_icon(): React.ReactElement {
-  let color_string = "-webkit-linear-gradient(" + this.color_major +"," + this.color_minor + ")"
-  console.log(color_string)
-  return (<>
-      <i className="fa-solid fa-bottle-water" style={{background: color_string, "WebkitBackgroundClip": "text", "WebkitTextFillColor":"transparent"}}></i>
+    return (<>
+      {this.shape}
     </>)
   }
 }
