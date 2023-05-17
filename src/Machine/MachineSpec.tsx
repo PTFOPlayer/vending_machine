@@ -1,5 +1,5 @@
 import Product from "../Products/Product";
-import { machine, payment_methods } from "../interfaces/machine";
+import { machine} from "../interfaces/machine";
 
 export class MachineSpec implements machine {
   id: number;
@@ -16,7 +16,7 @@ export class MachineSpec implements machine {
   coordinates: { x: number; y: number };
   coin_eating_chance?: number | undefined;
   stuck_produckt_chance?: number | undefined;
-  payment: payment_methods;
+  payment: string;
 
   constructor(data: machine) {
     this.id = data.id;

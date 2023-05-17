@@ -6,6 +6,7 @@ export default class MachineInstance extends MachineSpec {
   private product_objects: Product[][] = [];
   constructor(data: MachineSpec) {
     super(data);
+    this.generate_products()
   }
 
   static async init() {
@@ -31,9 +32,11 @@ export default class MachineInstance extends MachineSpec {
 
   generate_products() {
     for (let i = 0; i < this.slots.content.length; i++) {
+      let products: Product[] = new Array;
       for (let j = 0; j < this.slots.content[i].length; j++) {
-        this.product_objects[i][j] = new Product(this.slots.content[i][j].product, this.slots.content[i][j].amount);
+        products.push( new Product(this.slots.content[i][j].product, this.slots.content[i][j].amount))
       }
+      this.product_objects.push(products);
     }
   }
 }

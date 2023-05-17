@@ -27,8 +27,8 @@ const get_from_table = (name: string): productData => {
   return lookup_table[name] || {
     id: 0,
     price: 0,
-    color_major: "",
-    color_minor: "",
+    color_major: "lightblue",
+    color_minor: "blue",
     shape: shapes.none
   }
 }
@@ -65,6 +65,15 @@ export default class Product{
 
   get_colors(): [string, string] {
     return [this.color_major, this.color_minor]
+  }
+  
+
+  get_icon(): React.ReactElement {
+  let color_string = "-webkit-linear-gradient(" + this.color_major +"," + this.color_minor + ")"
+  console.log(color_string)
+  return (<>
+      <i className="fa-solid fa-bottle-water" style={{background: color_string, "WebkitBackgroundClip": "text", "WebkitTextFillColor":"transparent"}}></i>
+    </>)
   }
 }
 
