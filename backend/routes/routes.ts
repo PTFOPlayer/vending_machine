@@ -10,12 +10,10 @@ router.post('/', async (req, res) => {
     let body = req.body
     if (body) {
         let data = body as machine
-        for (const r of data.slots.content) {
+        for (var r of data.slots.content) {
             let ta = []
             if (r.length != 0) {
-
                 for (const c of r ) {
-                    
                     ta.push(c)
                 }
                 content.push(ta)
@@ -28,10 +26,6 @@ router.post('/', async (req, res) => {
             heigth: req.body.slots.heigth,
             width: req.body.slots.width,
             content: content
-        },
-        coordinates: {
-            x: req.body.coordinates.x,
-            y: req.body.coordinates.y
         },
         payment: req.body.payment
     })
@@ -79,10 +73,10 @@ router.get('/', async (req, res) => {
     }
 })
 
-//metoda GET BY ID (zobacz po ID)
-router.get('/:id', async (req, res) => {
+//metoda GET BY NUMBER (zobacz po NUMBER)
+router.get('/:number', async (req, res) => {
     try {
-        const model = await Model.findById(req.params.id);
+        const model = await Model.findOne({number: req.params.number});
         res.json(model)
     } catch (error) {
         res.status(500).json("error")
@@ -90,28 +84,28 @@ router.get('/:id', async (req, res) => {
 })
 
 //metoda GET ktora dodaje coin_eating_chance i stuck_product_chance
-router.get('/machine/:id', async (req, res) => {
+router.get('/machine/:number', async (req, res) => {
     try {
-        var model = await Model.findById(req.params.id);
-        if (model) {
-            model.coin_eating_chance = (Math.random() * (0.01 - 0.1) + 0.1)
-            model.stuck_product_chance = (Math.random() * (0.01 - 0.1) + 0.1)
-            res.status(201).json(model)
-        }
+      const model = await Model.findOne({number: req.params.number});
+      if (model) {
+          model.coin_eating_chance = (Math.random() * (0.01 - 0.1) + 0.1)
+          model.stuck_product_chance = (Math.random() * (0.01 - 0.1) + 0.1)
+          res.status(201).json(model)
+      }
     } catch (error) {
         res.status(500).json("error")
     }
 })
 
 //metoda PATCH (zmniejsza pole w tablicy z x i y)
-router.patch('/:id/:x/:y', async (req, res) => {
+router.patch('/:number/:x/:y', async (req, res) => {
     try {
         let x: number = +req.params.x
         let y: number = +req.params.y
-        console.log(x, y)
-        const filter = { "_id": req.params.id, "slots.content.x": req.params.x, "slots.content.y": req.params.y }
-        const update = { $inc: { "slots.content.$.amount": -1 } }
+        const filter = { "number": req.params.number}
+        const update = {$inc: { [`slots.content.${x}.${y}.amount`]: -1}}
         await Model.findOneAndUpdate(filter, update);
+        console.log("UPDATE!")
         let model = await Model.findOne(filter);
         res.json(model)
     } catch (error) {

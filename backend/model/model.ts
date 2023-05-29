@@ -22,24 +22,13 @@ const modelSchema = new mongoose.Schema({
       amount: Number,
     }]]
   },
-  coordinates: {
-    x: {
-      required: true,
-      type: Number
-    },
-    y: { 
-      required: true,
-      type: Number
-    }
-  },
   payment: {
     required: true,
     type: String,
   },
   coin_eating_chance: { type: Number },
   stuck_product_chance: { type: Number }
-},
-  {
+},{
     versionKey: false,
   });
 
