@@ -13,7 +13,7 @@ export default function View() {
     <>
       <div className="box">
         <div className="column1">
-          <Interior buffer={buffer} />
+          <Interior buffer={buffer} setBuffer={setBuffer} />
           <div className="push">
             <h1>PUSH</h1>
           </div>

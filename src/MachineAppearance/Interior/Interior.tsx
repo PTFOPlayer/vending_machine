@@ -5,7 +5,7 @@ import Product from "../../Products/Product";
 import { MachineVerify } from "../../Machine/MachineVerify";
 import { motion } from "framer-motion";
 import e from "express";
-export default function Interior(par: { buffer: string }) {
+export default function Interior(params: { buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>> }) {
   const [machine, setMachine] = useState<null | MachineInstance>(null);
 
   useEffect(() => {
@@ -32,8 +32,10 @@ export default function Interior(par: { buffer: string }) {
 
       for (let i = 0; i < machine.slots.width; i++) {
         for (let j = 0; j < machine.slots.heigth; j++) {
-          if (machine.get_products()[i][j].get_id() === par.buffer) {
+          if (machine.get_products()[i][j].get_id() === params.buffer) {
             machine.get_products()[i][j].set_dropdown(true);
+            params.setBuffer("");
+
           } else {
             machine.get_products()[i][j].set_dropdown(false);
           }
@@ -41,14 +43,26 @@ export default function Interior(par: { buffer: string }) {
       }
     }
   });
+
   let Node = (params: nodeparams) => {
     return (
       <div className="node">
         {
           params.e.map((e, key) => {
+            const animation = {
+              animation: {
+                y: e.get_dropdown() ? [0, 0, 400 + (200 - (key * 100)) ]: 0, 
+                rotate: e.get_dropdown() ? [0, 0, 360] : 0,
+                scale: e.get_dropdown()? [1, 1.4, 1.4] : 1,
+                transition: { duration: 4}
+              }
+            }
             return (
               <div className="segment" key={key} id={e.get_id()}>
-                <motion.div className="item" animate={{ y: e.get_dropdown() ? 400 : 0, rotate: e.get_dropdown() ? 360 : 0 }} >
+                <motion.div className="item"
+                  variants={animation}
+                  animate="animation"
+                  >
                   {e.get_icon()}
                 </motion.div>
                 <div className="base">
