@@ -3,8 +3,13 @@ import MachineInstance from "../../Machine/MachineInstance";
 import React, { useEffect, useState } from "react";
 import Product from "../../Products/Product";
 import { MachineVerify } from "../../Machine/MachineVerify";
+import {x_arr, y_arr, scale_arr} from "./animationDefaults";
 import { motion } from "framer-motion";
-import e from "express";
+
+type nodesparams = {
+  e: Product[]
+}
+
 export default function Interior(params: { buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>> }) {
   const [machine, setMachine] = useState<null | MachineInstance>(null);
 
@@ -20,49 +25,41 @@ export default function Interior(params: { buffer: string, setBuffer: React.Disp
     mv.verify() ? console.log("verified") : console.log("error in specs");
   }
 
-  type nodeparams = {
-    e: Product[]
-  }
-
-  type nodesparams = {
-    e: Product[][],
-  }
   useEffect(() => {
     if (machine) {
-
       for (let i = 0; i < machine.slots.width; i++) {
         for (let j = 0; j < machine.slots.heigth; j++) {
           if (machine.get_products()[i][j].get_id() === params.buffer) {
             machine.get_products()[i][j].set_dropdown(true);
             params.setBuffer("");
 
-          } else {
-            machine.get_products()[i][j].set_dropdown(false);
           }
+
         }
       }
     }
-  });
-
-  let Node = (params: nodeparams) => {
+  }, [params.buffer]);
+  
+  let Node = (params: nodesparams) => {
     return (
       <div className="node">
         {
           params.e.map((e, key) => {
             const animation = {
-              animation: {
-                y: e.get_dropdown() ? [0, 0, 400 + (200 - (key * 100)) ]: 0, 
-                rotate: e.get_dropdown() ? [0, 0, 360] : 0,
-                scale: e.get_dropdown()? [1, 1.4, 1.4] : 1,
-                transition: { duration: 4}
-              }
+              y: [0, 0, 400 + (200 - (key * 100))],
+              rotate: [0, 0, 360],
+              scale: [1, 1.3, 1.3],
+              transition: { duration: 4 },
             }
+            let i = +e.get_id()[0];
+            let j = +e.get_id()[1];
             return (
               <div className="segment" key={key} id={e.get_id()}>
                 <motion.div className="item"
-                  variants={animation}
-                  animate="animation"
-                  >
+                  style={{ x: x_arr[i][j], y: y_arr[i][j], scale: scale_arr[i][j] }}
+                  animate={e.get_dropdown() && !e.get_was_dropped() ? animation : false}
+                  drag={true}
+                >
                   {e.get_icon()}
                 </motion.div>
                 <div className="base">
@@ -81,17 +78,12 @@ export default function Interior(params: { buffer: string, setBuffer: React.Disp
     )
   }
 
-  let Nodes = (params: nodesparams) => {
-    return (
-      <div className="nodes">
-        {params.e.map((e, key) => <Node e={e} key={key} />)}
-      </div>
-    )
-  }
-
   return (
     <div className="interior">
-      {machine ? <Nodes e={machine.get_products()} /> : null}
+      {machine ?
+        <div className="nodes">
+          {machine.get_products().map((e, key) => <Node e={e} key={key} />)}
+        </div> : null}
       <div className="glass" />
     </div>
   )

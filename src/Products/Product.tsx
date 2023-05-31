@@ -1,3 +1,4 @@
+import { useMotionValue } from "framer-motion"
 import React, { useState } from "react"
 
 type productData = {price: number, color_major: string, color_minor: string, shape: React.ReactElement }
@@ -51,8 +52,9 @@ export default class Product {
   private color_minor: string
   private shape: React.ReactElement;
   private ammount: number;
-  private dropdown: boolean;
   private id: string;
+  private dropdown: boolean;
+  private was_dropped: boolean;
   constructor(pName: string, ammount: number, id:string) {
     this.name = pName;
     let temporary = get_from_table(this.name);
@@ -63,6 +65,7 @@ export default class Product {
     this.ammount = ammount;
     this.id = id;
     this.dropdown = false;
+    this.was_dropped = false;
   }
 
   get_id() {
@@ -77,6 +80,16 @@ export default class Product {
     return this.name
   }
 
+  unset_item() {
+    this.price = 0;
+    this.color_major = "none";
+    this.color_minor = "none";
+    this.shape = (<i></i>);
+    this.ammount = 0;
+    this.dropdown = false;
+    this.was_dropped = false;
+  }
+
   get_colors(): [string, string] {
     return [this.color_major, this.color_minor]
   }
@@ -87,10 +100,21 @@ export default class Product {
 
   set_dropdown(dropdown: boolean) {
     this.dropdown = dropdown;
+    setTimeout(() => {
+      this.set_was_dropped(true);
+    }, 4000);
   }
 
   get_dropdown() {
     return this.dropdown
+  }
+
+  set_was_dropped(was_dropped: boolean) {
+    this.was_dropped = was_dropped;
+  }
+
+  get_was_dropped() {
+    return this.was_dropped
   }
 }
 
