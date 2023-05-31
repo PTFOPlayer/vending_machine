@@ -97,6 +97,24 @@ router.get('/machine/:number', async (req, res) => {
     }
 })
 
+router.get('/machine/random/random', async (req, res) => {
+  let document_count = await Model.countDocuments({})
+  console.log(document_count)
+  let random_number = Math.floor(Math.random() * (document_count-1)) + 1
+  console.log(random_number)
+    try { 
+      const model = await Model.findOne({number: random_number});
+      if (model) {
+          model.coin_eating_chance = (Math.random() * (0.01 - 0.1) + 0.1)
+          model.stuck_product_chance = (Math.random() * (0.01 - 0.1) + 0.1)
+          res.status(201).json(model)
+      }
+    } catch (error) {
+        res.status(500).json("error")
+    }
+})
+
+
 //metoda PATCH (zmniejsza pole w tablicy z x i y)
 router.patch('/:number/:x/:y', async (req, res) => {
     try {
