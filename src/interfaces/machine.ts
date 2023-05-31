@@ -6,13 +6,9 @@ export interface machine {
         heigth: number,
         width: number
         content: Array<Array<{
-            amount:number,
+            amount: number,
             product: string
         }>>
-    },
-    coordinates: {
-        x: number,
-        y: number
     },
     coin_eating_chance?: number | undefined,
     stuck_product_chance?: number | undefined,

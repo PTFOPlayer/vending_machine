@@ -1,0 +1,46 @@
+.Coins {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    width: fit-content;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    .pln1{
+        width: 7.5vh;
+        height: 7.5vh;
+        background-color: silver;
+    }
+    .pln2{
+
+        width: 10vh;
+        height: 10vh;
+        background-color: rgb(255, 153, 0);
+    }
+    .pln5{
+        background-color: yellow;
+        width: 12vh;
+        height: 12vh;
+        
+    }
+
+    .pln1,.pln2,.pln5 {
+        border-radius: 50%;
+        margin: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            font-size: 7vh;
+            font-weight: 800;
+        }
+    }
+}
+

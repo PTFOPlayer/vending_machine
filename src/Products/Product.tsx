@@ -1,38 +1,33 @@
-import React from "react"
+import React, { useState } from "react"
 
-type productData = { id: number, price: number, color_major: string, color_minor: string, shape: React.ReactElement }
+type productData = {price: number, color_major: string, color_minor: string, shape: React.ReactElement }
 
 const lookup_table: Record<string, productData> = {
   "water": {
-    id: 1,
     price: 2,
     color_major: "lightblue",
     color_minor: "blue",
     shape: (<i className="fa-solid fa-bottle-water" style={{ background: "-webkit-linear-gradient(lightblue, blue)", "WebkitBackgroundClip": "text", "WebkitTextFillColor": "transparent" }}></i>),
   },
   "coke": {
-    id: 1,
     price: 4,
     color_major: "lightblue",
     color_minor: "blue",
     shape: (<i className="fa-solid fa-bottle-water" style={{ background: "-webkit-linear-gradient(black, red)", "WebkitBackgroundClip": "text", "WebkitTextFillColor": "transparent" }}></i>),
   },
   "chocolate": {
-    id: 1,
     price: 2.50,
     color_major: "lightblue",
     color_minor: "blue",
     shape: (<i className="" style={{"fontSize":"70px"}}>🍫</i>),
   },
   "lolipop": {
-    id: 1,
     price: 2.50,
     color_major: "lightblue",
     color_minor: "blue",
     shape: (<i className="" style={{"fontSize":"70px"}}>🍭</i>),
   },
   "cookie": {
-    id: 1,
     price: 2.50,
     color_major: "lightblue",
     color_minor: "blue",
@@ -42,31 +37,32 @@ const lookup_table: Record<string, productData> = {
 
 const get_from_table = (name: string): productData => {
   return lookup_table[name] || {
-    id: 0,
-    price: 2,
-    color_major: "lightblue",
-    color_minor: "blue",
-    shape: (<i className="fa-solid fa-bottle-water" style={{ background: "-webkit-linear-gradient(lightblue, blue)", "WebkitBackgroundClip": "text", "WebkitTextFillColor": "transparent" }}></i>)
+    price: 0,
+    color_major: "none",
+    color_minor: "none",
+    shape: (<i></i>)
   }
 }
 
 export default class Product {
   private name: string;
-  private id: number;
   private price: number;
   private color_major: string;
   private color_minor: string
   private shape: React.ReactElement;
   private ammount: number;
-  constructor(pName: string, ammount: number) {
+  private dropdown: boolean;
+  private id: string;
+  constructor(pName: string, ammount: number, id:string) {
     this.name = pName;
     let temporary = get_from_table(this.name);
-    this.id = temporary.id;
     this.price = temporary.price;
     this.color_major = temporary.color_major;
     this.color_minor = temporary.color_minor;
     this.shape = temporary.shape;
     this.ammount = ammount;
+    this.id = id;
+    this.dropdown = false;
   }
 
   get_id() {
@@ -85,11 +81,16 @@ export default class Product {
     return [this.color_major, this.color_minor]
   }
 
-
   get_icon(): React.ReactElement {
-    return (<>
-      {this.shape}
-    </>)
+    return (<>{this.shape}</>)
+  }
+
+  set_dropdown(dropdown: boolean) {
+    this.dropdown = dropdown;
+  }
+
+  get_dropdown() {
+    return this.dropdown
   }
 }
 

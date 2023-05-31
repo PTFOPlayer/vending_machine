@@ -1,9 +1,9 @@
+import React from "react";
 import "./numpad.scss"
 
 export default function Numpad(state: {buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>>}) {
-
   const handle_click = (e: number) => {
-    if (state.buffer.length < 4) {
+    if (state.buffer.length < 2) {
       state.setBuffer(state.buffer + e);
     }
   }
@@ -11,6 +11,7 @@ export default function Numpad(state: {buffer: string, setBuffer: React.Dispatch
   const clearBuffer = () => {
     state.setBuffer("");
   }
+
 
   return (
     <div className="numpad">
@@ -34,7 +35,7 @@ export default function Numpad(state: {buffer: string, setBuffer: React.Dispatch
           <button onClick={() => handle_click(0)}>0</button>
           <button onClick={() => clearBuffer()}>C</button>
         </ul>
-        <button> Confirm </button>
+        <button > Confirm </button>
       </ul>
     </div>
   )
