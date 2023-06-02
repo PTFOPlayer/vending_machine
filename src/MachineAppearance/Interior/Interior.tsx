@@ -3,8 +3,8 @@ import MachineInstance from "../../Machine/MachineInstance";
 import React, { useEffect, useState } from "react";
 import Product from "../../Products/Product";
 import { MachineVerify } from "../../Machine/MachineVerify";
-import {x_arr, y_arr, scale_arr} from "./animationDefaults";
 import { motion } from "framer-motion";
+import { MotionValue, useMotionValue as umv } from "framer-motion";
 
 type nodesparams = {
   e: Product[]
@@ -12,6 +12,27 @@ type nodesparams = {
 
 export default function Interior(params: { buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>> }) {
   const [machine, setMachine] = useState<null | MachineInstance>(null);
+
+  const x_arr: Array<Array<MotionValue<number>>> = [
+      [umv(0), umv(0), umv(0), umv(0)], 
+      [umv(0), umv(0), umv(0), umv(0)], 
+      [umv(0), umv(0), umv(0), umv(0)], 
+      [umv(0), umv(0), umv(0), umv(0)], 
+      [umv(0), umv(0), umv(0), umv(0)]];
+  
+  const y_arr: Array<Array<MotionValue<number>>> = [
+      [umv(0), umv(0), umv(0), umv(0)], 
+      [umv(0), umv(0), umv(0), umv(0)], 
+      [umv(0), umv(0), umv(0), umv(0)], 
+      [umv(0), umv(0), umv(0), umv(0)], 
+      [umv(0), umv(0), umv(0), umv(0)]];
+  
+  const scale_arr: Array<Array<MotionValue<number>>> = [
+      [umv(1), umv(1), umv(1), umv(1)], 
+      [umv(1), umv(1), umv(1), umv(1)], 
+      [umv(1), umv(1), umv(1), umv(1)], 
+      [umv(1), umv(1), umv(1), umv(1)], 
+      [umv(1), umv(1), umv(1), umv(1)]];
 
   useEffect(() => {
     MachineInstance.init()
