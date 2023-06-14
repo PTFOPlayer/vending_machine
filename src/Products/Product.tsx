@@ -18,20 +18,20 @@ const lookup_table: Record<string, productData> = {
   },
   "chocolate": {
     price: 2.50,
-    color_major: "lightblue",
-    color_minor: "blue",
+    color_major: "none",
+    color_minor: "none",
     shape: (<i className="" style={{"fontSize":"70px"}}>🍫</i>),
   },
   "lolipop": {
     price: 2.50,
-    color_major: "lightblue",
-    color_minor: "blue",
+    color_major: "none",
+    color_minor: "none",
     shape: (<i className="" style={{"fontSize":"70px"}}>🍭</i>),
   },
   "cookie": {
     price: 2.50,
-    color_major: "lightblue",
-    color_minor: "blue",
+    color_major: "none",
+    color_minor: "none",
     shape: (<i className="" style={{"fontSize":"70px"}}>🍪</i>),
   }
 }

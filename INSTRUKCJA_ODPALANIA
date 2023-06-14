@@ -1,0 +1,9 @@
+odpalenie backendu:
+w folderze backed uruchomić komendy
+`npm i`
+`npm run start`
+
+odpalenie strony:
+w folderze głównym projektu odpalić 
+`npm i`
+`npm run start`

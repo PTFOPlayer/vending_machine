@@ -25,7 +25,7 @@ export class MachineSpec implements machine {
   }
 
   static async init(): Promise<machine | null> {
-    return fetch("http://localhost:3100/api/1")
+    return fetch("http://localhost:3100/api/machine/random/random")
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);

@@ -10,29 +10,35 @@ type nodesparams = {
   e: Product[]
 }
 
-export default function Interior(params: { buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>> }) {
+type interior_params = {
+  buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>>,
+  balance: number, setBalance: React.Dispatch<React.SetStateAction<number>>,
+  confirm: boolean
+}
+
+export default function Interior(params: interior_params) {
   const [machine, setMachine] = useState<null | MachineInstance>(null);
 
   const x_arr: Array<Array<MotionValue<number>>> = [
-      [umv(0), umv(0), umv(0), umv(0)], 
-      [umv(0), umv(0), umv(0), umv(0)], 
-      [umv(0), umv(0), umv(0), umv(0)], 
-      [umv(0), umv(0), umv(0), umv(0)], 
-      [umv(0), umv(0), umv(0), umv(0)]];
-  
+    [umv(0), umv(0), umv(0), umv(0)],
+    [umv(0), umv(0), umv(0), umv(0)],
+    [umv(0), umv(0), umv(0), umv(0)],
+    [umv(0), umv(0), umv(0), umv(0)],
+    [umv(0), umv(0), umv(0), umv(0)]];
+
   const y_arr: Array<Array<MotionValue<number>>> = [
-      [umv(0), umv(0), umv(0), umv(0)], 
-      [umv(0), umv(0), umv(0), umv(0)], 
-      [umv(0), umv(0), umv(0), umv(0)], 
-      [umv(0), umv(0), umv(0), umv(0)], 
-      [umv(0), umv(0), umv(0), umv(0)]];
-  
+    [umv(0), umv(0), umv(0), umv(0)],
+    [umv(0), umv(0), umv(0), umv(0)],
+    [umv(0), umv(0), umv(0), umv(0)],
+    [umv(0), umv(0), umv(0), umv(0)],
+    [umv(0), umv(0), umv(0), umv(0)]];
+
   const scale_arr: Array<Array<MotionValue<number>>> = [
-      [umv(1), umv(1), umv(1), umv(1)], 
-      [umv(1), umv(1), umv(1), umv(1)], 
-      [umv(1), umv(1), umv(1), umv(1)], 
-      [umv(1), umv(1), umv(1), umv(1)], 
-      [umv(1), umv(1), umv(1), umv(1)]];
+    [umv(1), umv(1), umv(1), umv(1)],
+    [umv(1), umv(1), umv(1), umv(1)],
+    [umv(1), umv(1), umv(1), umv(1)],
+    [umv(1), umv(1), umv(1), umv(1)],
+    [umv(1), umv(1), umv(1), umv(1)]];
 
   useEffect(() => {
     MachineInstance.init()
@@ -50,17 +56,25 @@ export default function Interior(params: { buffer: string, setBuffer: React.Disp
     if (machine) {
       for (let i = 0; i < machine.slots.width; i++) {
         for (let j = 0; j < machine.slots.heigth; j++) {
-          if (machine.get_products()[i][j].get_id() === params.buffer) {
-            machine.get_products()[i][j].set_dropdown(true);
+          let product = machine.get_products()[i][j];
+          if (product.get_id() === params.buffer && params.balance >= product.get_price() && !product.get_was_dropped()) {
+            product.set_dropdown(true);
             params.setBuffer("");
-
+            params.setBalance(params.balance - product.get_price());
+          } else if (params.balance <= product.get_price() && !product.get_was_dropped()) {
+            new Promise((resolve, reject) => {
+              params.setBuffer("za malo srodkow");
+              setTimeout(() => {
+                params.setBuffer("");
+              }, 10000);
+            });
           }
 
         }
       }
     }
-  }, [params.buffer]);
-  
+  }, [params.confirm == true]);
+
   let Node = (params: nodesparams) => {
     return (
       <div className="node">

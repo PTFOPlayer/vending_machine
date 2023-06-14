@@ -1,7 +1,12 @@
 import React from "react";
 import "./numpad.scss"
 
-export default function Numpad(state: {buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>>}) {
+type numpad_params = {
+  buffer: string, setBuffer: React.Dispatch<React.SetStateAction<string>>,
+  confirm: boolean, setConfirm: React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+export default function Numpad(state:numpad_params) {
   const handle_click = (e: number) => {
     if (state.buffer.length < 2) {
       state.setBuffer(state.buffer + e);
@@ -12,6 +17,14 @@ export default function Numpad(state: {buffer: string, setBuffer: React.Dispatch
     state.setBuffer("");
   }
 
+  const handle_confirm = () => {
+    state.setConfirm(true);
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        state.setConfirm(false);
+      }, 10000);
+    });
+  }
 
   return (
     <div className="numpad">
@@ -35,7 +48,7 @@ export default function Numpad(state: {buffer: string, setBuffer: React.Dispatch
           <button onClick={() => handle_click(0)}>0</button>
           <button onClick={() => clearBuffer()}>C</button>
         </ul>
-        <button > Confirm </button>
+        <button onClick={()=> handle_confirm()}> Confirm </button>
       </ul>
     </div>
   )

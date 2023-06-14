@@ -8,12 +8,12 @@ export default function View() {
 
   const [buffer, setBuffer] = useState<string>("");
   const [balance, setBalance] = useState<number>(0);
-
+  const [confirm, setConfirm] = useState<boolean>(false);
   return (
     <>
       <div className="box">
         <div className="column1">
-          <Interior buffer={buffer} setBuffer={setBuffer} />
+          <Interior buffer={buffer} setBuffer={setBuffer} balance={balance} setBalance={setBalance} confirm={confirm}/>
           <div className="push">
             <h1>PUSH</h1>
           </div>
@@ -25,7 +25,7 @@ export default function View() {
           <div className="window">
             <p style={{ color: "white" }}>nr: {buffer}</p>
           </div>
-          <Numpad buffer={buffer} setBuffer={setBuffer} />
+          <Numpad buffer={buffer} setBuffer={setBuffer} confirm={confirm} setConfirm={setConfirm}/>
           <div className="coins">
             <p>coins</p>
           </div>
