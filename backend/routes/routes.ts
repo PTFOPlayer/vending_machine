@@ -55,10 +55,6 @@ router.post('/', async (req, res) => {
         [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}]
         ]
 },
-  "coordinates": {
-            "x": 1000,
-            "y": 100
-        },
   "payment": "cash"
 }
 */
