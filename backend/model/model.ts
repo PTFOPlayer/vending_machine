@@ -1,11 +1,14 @@
 import mongoose from "mongoose";
 
+//schemat obiektu z bazy danych
 const modelSchema = new mongoose.Schema({
+  //numer maszyny
   number: {
     required: true,
     type: Number,
     default: null
   },
+  //ilosc slotow
   slots: {
     heigth: {
       required: true,
@@ -17,6 +20,7 @@ const modelSchema = new mongoose.Schema({
       type: Number,
       default: 1
     },
+    //zawartosc w slocie
     content: [[{
       product: String,
       amount: Number,
@@ -29,6 +33,7 @@ const modelSchema = new mongoose.Schema({
   coin_eating_chance: { type: Number },
   stuck_product_chance: { type: Number }
 },{
+    //usuniecie pola wersji z dokumentu mongo
     versionKey: false,
   });
 
