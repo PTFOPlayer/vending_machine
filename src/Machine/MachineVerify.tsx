@@ -2,6 +2,8 @@ import { machine } from "../interfaces/machine";
 import MachineInstance from "./MachineInstance";
 import { MachineSpec } from "./MachineSpec";
 
+
+// celem tej klasy jest weryfikowanie czy maszyna ma poprawną specyfikacje, błędna specyfikacja nie będzie powodowała że strona nie będzie działać ale pojawi się powiadomienie o tym w konsoli
 export class MachineVerify extends MachineSpec{
     public product_objects;
     constructor(Instance: MachineInstance) {

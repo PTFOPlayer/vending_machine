@@ -7,3 +7,10 @@ odpalenie strony:
 w folderze głównym projektu odpalić 
 `npm i`
 `npm run start`
+
+odpalenie bazy danych:
+na windowsie baza danych uruchamia się domyślnie
+na linuxie:
+`systemctl service start mongodb` (lub `sudo mongod --config /etc/mongodb.conf`)
+
+aby zaimportować bazę danych należy zaimportować plik db.json 

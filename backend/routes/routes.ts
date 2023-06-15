@@ -2,6 +2,7 @@ import express from "express";
 import Model from "../model/model"
 import { machine, slot } from "./interface";
 
+//obiekt odpowiadajacy za requesty api
 const router = express.Router()
 
 //metoda POST (dodawania)
@@ -13,13 +14,14 @@ router.post('/', async (req, res) => {
         for (var r of data.slots.content) {
             let ta = []
             if (r.length != 0) {
-                for (const c of r ) {
+                for (const c of r) {
                     ta.push(c)
                 }
                 content.push(ta)
             }
         }
     }
+    //stworzenie obiektu na podstawie requestu
     var model = new Model({
         number: req.body.number,
         slots: {
@@ -29,6 +31,7 @@ router.post('/', async (req, res) => {
         },
         payment: req.body.payment
     })
+    //zapis do bazy danych
     try {
         const newModel = await model.save()
         res.status(201).json(newModel)
@@ -40,25 +43,6 @@ router.post('/', async (req, res) => {
     }
 })
 
-
-//data to push
-/*
-{
-	"number": 1,
-  	"slots": {
-	"heigth": 5,
-      "width": 4,
-      "content": [
-        [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}],
-        [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}],
-        [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}],
-        [{"amount":1,"product": "woda"}, {"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"},{"amount":1,"product": "woda"}]
-        ]
-},
-  "payment": "cash"
-}
-*/
-
 //metoda GET ALL (zobacz wszystkie)
 router.get('/', async (req, res) => {
     try {
@@ -69,10 +53,10 @@ router.get('/', async (req, res) => {
     }
 })
 
-//metoda GET BY NUMBER (zobacz po NUMBER)
+//metoda GET BY NUMBER (zobacz po NUMBER) 
 router.get('/:number', async (req, res) => {
     try {
-        const model = await Model.findOne({number: req.params.number});
+        const model = await Model.findOne({ number: req.params.number });
         res.json(model)
     } catch (error) {
         res.status(500).json("error")
@@ -82,29 +66,30 @@ router.get('/:number', async (req, res) => {
 //metoda GET ktora dodaje coin_eating_chance i stuck_product_chance
 router.get('/machine/:number', async (req, res) => {
     try {
-      const model = await Model.findOne({number: req.params.number});
-      if (model) {
-          model.coin_eating_chance = (Math.random() * (0.01 - 0.1) + 0.1)
-          model.stuck_product_chance = (Math.random() * (0.01 - 0.1) + 0.1)
-          res.status(201).json(model)
-      }
+        const model = await Model.findOne({ number: req.params.number });
+        if (model) {
+            model.coin_eating_chance = (Math.random() * (0.01 - 0.1) + 0.1)
+            model.stuck_product_chance = (Math.random() * (0.01 - 0.1) + 0.1)
+            res.status(201).json(model)
+        }
     } catch (error) {
         res.status(500).json("error")
     }
 })
 
+//metoda GET ktora losuje maszyne 
 router.get('/machine/random/random', async (req, res) => {
-  let document_count = await Model.countDocuments({})
-  console.log(document_count)
-  let random_number = Math.floor(Math.random() * (document_count)) + 1
-  console.log(random_number)
-    try { 
-      const model = await Model.findOne({number: random_number});
-      if (model) {
-          model.coin_eating_chance = (Math.random() * (0.01 - 0.1) + 0.1)
-          model.stuck_product_chance = (Math.random() * (0.01 - 0.1) + 0.1)
-          res.status(201).json(model)
-      }
+    let document_count = await Model.countDocuments({})
+    console.log(document_count)
+    let random_number = Math.floor(Math.random() * (document_count)) + 1
+    console.log(random_number)
+    try {
+        const model = await Model.findOne({ number: random_number });
+        if (model) {
+            model.coin_eating_chance = (Math.random() * (0.01 - 0.1) + 0.1)
+            model.stuck_product_chance = (Math.random() * (0.01 - 0.1) + 0.1)
+            res.status(201).json(model)
+        }
     } catch (error) {
         res.status(500).json("error")
     }
@@ -116,8 +101,8 @@ router.patch('/:number/:x/:y', async (req, res) => {
     try {
         let x: number = +req.params.x
         let y: number = +req.params.y
-        const filter = { "number": req.params.number}
-        const update = {$inc: { [`slots.content.${x}.${y}.amount`]: -1}}
+        const filter = { "number": req.params.number }
+        const update = { $inc: { [`slots.content.${x}.${y}.amount`]: -1 } }
         await Model.findOneAndUpdate(filter, update);
         console.log("UPDATE!")
         let model = await Model.findOne(filter);
@@ -128,3 +113,19 @@ router.patch('/:number/:x/:y', async (req, res) => {
 })
 
 export = router;
+
+
+// {
+// 	"number": 1,
+//   	"slots": {
+// 	"heigth": 5,
+//       "width": 4,
+//       "content": [
+//         [{"amount":1,"product": "water"}, {"amount":1,"product": "lolipop"},{"amount":1,"product": "coke"},{"amount":1,"product": ""},{"amount":1,"product": ""}],
+//         [{"amount":1,"product": "coke"}, {"amount":1,"product": "coke"},{"amount":1,"product": "water"},{"amount":1,"product": ""},{"amount":1,"product": ""}],
+//         [{"amount":1,"product": "cookie"}, {"amount":1,"product": "cookie"},{"amount":1,"product": "cookie"},{"amount":1,"product": "chocolate"},{"amount":1,"product": ""}],
+//         [{"amount":1,"product": ""}, {"amount":1,"product": "cookie"},{"amount":1,"product": "chocolate"},{"amount":1,"product": "chocolate"},{"amount":1,"product": ""}]
+//         ]
+// },
+//   "payment": "cash"
+// }

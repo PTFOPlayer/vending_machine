@@ -4,6 +4,8 @@ import Numpad from "./Numpad/Numpad";
 import Interior from "./Interior/Interior";
 import Coins from "../CoinsGui/Coins";
 
+
+// funkcja definiująca podstawowy wygląd maszyny
 export default function View() {
 
   const [buffer, setBuffer] = useState<string>("");

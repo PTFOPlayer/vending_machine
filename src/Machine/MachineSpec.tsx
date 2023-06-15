@@ -1,5 +1,6 @@
 import { machine } from "../interfaces/machine";
 
+// klasa definiująca specyfikację maszyny, dzidziczą po niej klasy weryfikatora oraz instancji
 export class MachineSpec implements machine {
   id: number;
   slots: {
@@ -16,6 +17,7 @@ export class MachineSpec implements machine {
   stuck_produckt_chance?: number | undefined;
   payment: string;
 
+  // konstruktor synchroniczny
   constructor(data: machine) {
     this.id = data.id;
     this.slots = data.slots;
@@ -24,6 +26,7 @@ export class MachineSpec implements machine {
     this.stuck_produckt_chance = data.stuck_product_chance;
   }
 
+  // konstruktor asynchroniczny ściągający specyfikację z backendu
   static async init(): Promise<machine | null> {
     return fetch("http://localhost:3100/api/machine/random/random")
       .then((res) => {

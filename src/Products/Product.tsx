@@ -2,7 +2,7 @@ import { useMotionValue } from "framer-motion"
 import React, { useState } from "react"
 
 type productData = {price: number, color_major: string, color_minor: string, shape: React.ReactElement }
-
+// tabela wyglądów do produktów
 const lookup_table: Record<string, productData> = {
   "water": {
     price: 2,
@@ -45,6 +45,8 @@ const get_from_table = (name: string): productData => {
   }
 }
 
+// klasa produktu, zawiera wszystkie dane produktu, zajmuje się ona też poprawnym zachowaniem animacji
+
 export default class Product {
   private name: string;
   private price: number;
@@ -80,6 +82,7 @@ export default class Product {
     return this.name
   }
 
+  // ustawia produkt na jego brak oraz zwalnia pamięć w Virtual DOM poprzez zamienianie ikony na pustą ikonę
   unset_item() {
     this.price = 0;
     this.color_major = "none";
@@ -98,6 +101,7 @@ export default class Product {
     return (<>{this.shape}</>)
   }
 
+  // metoda zajmująca się zapamiętywaniem stanu produktu po spadku
   set_dropdown(dropdown: boolean) {
     this.dropdown = dropdown;
     setTimeout(() => {

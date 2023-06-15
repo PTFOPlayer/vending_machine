@@ -1,0 +1,805 @@
+[{
+  "_id": {
+    "$oid": "64895ea35961865981c2b88b"
+  },
+  "number": 1,
+  "slots": {
+    "heigth": 5,
+    "width": 4,
+    "content": [
+      [
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b88c"
+          }
+        },
+        {
+          "product": "lolipop",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b88d"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b88e"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b88f"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b890"
+          }
+        }
+      ],
+      [
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b891"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b892"
+          }
+        },
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b893"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b894"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b895"
+          }
+        }
+      ],
+      [
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b896"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b897"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b898"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b899"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b89a"
+          }
+        }
+      ],
+      [
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b89b"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b89c"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b89d"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b89e"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64895ea35961865981c2b89f"
+          }
+        }
+      ]
+    ]
+  },
+  "payment": "cash"
+},
+{
+  "_id": {
+    "$oid": "64897e5d2f407bfb3f740a60"
+  },
+  "number": 2,
+  "slots": {
+    "heigth": 5,
+    "width": 4,
+    "content": [
+      [
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a61"
+          }
+        },
+        {
+          "product": "lolipop",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a62"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a63"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a64"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a65"
+          }
+        }
+      ],
+      [
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a66"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a67"
+          }
+        },
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a68"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a69"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a6a"
+          }
+        }
+      ],
+      [
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a6b"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a6c"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a6d"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a6e"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a6f"
+          }
+        }
+      ],
+      [
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a70"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a71"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a72"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a73"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897e5d2f407bfb3f740a74"
+          }
+        }
+      ]
+    ]
+  },
+  "payment": "cash"
+},
+{
+  "_id": {
+    "$oid": "64897eee2f407bfb3f740a76"
+  },
+  "number": 3,
+  "slots": {
+    "heigth": 5,
+    "width": 4,
+    "content": [
+      [
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a77"
+          }
+        },
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a78"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a79"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a7a"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a7b"
+          }
+        }
+      ],
+      [
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a7c"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a7d"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a7e"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a7f"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a80"
+          }
+        }
+      ],
+      [
+        {
+          "product": "lolipop",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a81"
+          }
+        },
+        {
+          "product": "lolipop",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a82"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a83"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a84"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a85"
+          }
+        }
+      ],
+      [
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a86"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a87"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a88"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a89"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897eee2f407bfb3f740a8a"
+          }
+        }
+      ]
+    ]
+  },
+  "payment": "cash"
+},
+{
+  "_id": {
+    "$oid": "64897f3f2f407bfb3f740aa2"
+  },
+  "number": 4,
+  "slots": {
+    "heigth": 5,
+    "width": 4,
+    "content": [
+      [
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aa3"
+          }
+        },
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aa4"
+          }
+        },
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aa5"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aa6"
+          }
+        },
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aa7"
+          }
+        }
+      ],
+      [
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aa8"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aa9"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aaa"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aab"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aac"
+          }
+        }
+      ],
+      [
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aad"
+          }
+        },
+        {
+          "product": "lolipop",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aae"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740aaf"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740ab0"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740ab1"
+          }
+        }
+      ],
+      [
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740ab2"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740ab3"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740ab4"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740ab5"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f3f2f407bfb3f740ab6"
+          }
+        }
+      ]
+    ]
+  },
+  "payment": "cash"
+},
+{
+  "_id": {
+    "$oid": "64897f882f407bfb3f740ab8"
+  },
+  "number": 5,
+  "slots": {
+    "heigth": 5,
+    "width": 4,
+    "content": [
+      [
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ab9"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740aba"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740abb"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740abc"
+          }
+        },
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740abd"
+          }
+        }
+      ],
+      [
+        {
+          "product": "lolipop",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740abe"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740abf"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac0"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac1"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac2"
+          }
+        }
+      ],
+      [
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac3"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac4"
+          }
+        },
+        {
+          "product": "cookie",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac5"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac6"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac7"
+          }
+        }
+      ],
+      [
+        {
+          "product": "water",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac8"
+          }
+        },
+        {
+          "product": "lolipop",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740ac9"
+          }
+        },
+        {
+          "product": "chocolate",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740aca"
+          }
+        },
+        {
+          "product": "coke",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740acb"
+          }
+        },
+        {
+          "product": "",
+          "amount": 1,
+          "_id": {
+            "$oid": "64897f882f407bfb3f740acc"
+          }
+        }
+      ]
+    ]
+  },
+  "payment": "cash"
+}]

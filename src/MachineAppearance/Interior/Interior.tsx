@@ -52,6 +52,7 @@ export default function Interior(params: interior_params) {
     mv.verify() ? console.log("verified") : console.log("error in specs");
   }
 
+  // logika związana z kupowaniem produktów
   useEffect(() => {
     if (machine) {
       for (let i = 0; i < machine.slots.width; i++) {

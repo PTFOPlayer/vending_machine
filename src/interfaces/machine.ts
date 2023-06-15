@@ -1,5 +1,4 @@
-// interfejs do maszyny w założeniu może być używany jednocześnie przez backend jak i przez front end
-
+// interfejs do maszyny, służy do parsowania jsona oraz dziedziczą go inne obiekty związane z maszyną
 export interface machine {
     id: number,
     slots: {
